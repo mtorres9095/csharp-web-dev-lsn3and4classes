@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Runtime.InteropServices;
 
 namespace SchoolPractice
 {
@@ -6,7 +8,12 @@ namespace SchoolPractice
     {
         public static void Main(string[] args)
         {
-            // TODO: Instantiate your objects and test your exercise solutions with print statements here.
+            Student miguel = new Student("Miguel", 1 ,1 , 4.0);
+            Console.WriteLine($"Testing the class {miguel.Name} is here");
+
+            
+
         }
     }
+    
 }
