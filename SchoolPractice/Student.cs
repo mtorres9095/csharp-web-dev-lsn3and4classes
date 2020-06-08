@@ -90,6 +90,9 @@ namespace SchoolPractice
             Student studentObj = toBeCompared as Student;
             return StudentId == studentObj.StudentId;
         }
-
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(Name, StudentId, NumberOfCredits, Gpa);
+        }
     }
 }

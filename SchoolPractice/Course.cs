@@ -10,7 +10,7 @@ namespace SchoolPractice
         public Teacher Instructor;
 
         public Course()
-        {
+        {Hass
 
         }
         public override string ToString()
@@ -33,9 +33,11 @@ namespace SchoolPractice
             }
            Course courseObj = toBeCompared as Course;
             return Instructor == courseObj.Instructor && CourseDesc == courseObj.CourseDesc;
-
         }
-
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(CourseDesc, Roster, Instructor);
+        }
     }
 }
 
