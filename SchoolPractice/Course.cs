@@ -10,7 +10,7 @@ namespace SchoolPractice
         public Teacher Instructor;
 
         public Course()
-        {Hass
+        {
 
         }
         public override string ToString()
