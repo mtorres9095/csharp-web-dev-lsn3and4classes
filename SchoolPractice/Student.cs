@@ -9,7 +9,7 @@ namespace SchoolPractice
 {
     public class Student
     {
-        private static int nextStudentId = 1;
+        public static int nextStudentId = 1;
         public string Name { get; set; }
         public int StudentId { get; set; }
         public int NumberOfCredits { get; set; }
@@ -43,8 +43,6 @@ namespace SchoolPractice
             int newNumberOfCredits = NumberOfCredits + courseCredits;
             Gpa = newGpa;
             NumberOfCredits = newNumberOfCredits;
-
-
         }
 
         public string GetGradeLevel()// return
@@ -75,19 +73,16 @@ namespace SchoolPractice
         {
             return Name + " (Credits: " + NumberOfCredits + ", GPA: " + Gpa + ")";
         }
-        public override boolean Equals(object toBeCompared)// 5.3.2.1.2 Problem #2
+        public override bool Equals(object toBeCompared)// 5.3.2.1.2 Problem #2
         {
-
             if (toBeCompared == null)
             {
                 return false;
             }
-
             if (toBeCompared.GetType() != this.GetType())
             {
                 return false;
             }
-
             Student s = toBeCompared as Student;
             return s.StudentId == StudentId;
         }
