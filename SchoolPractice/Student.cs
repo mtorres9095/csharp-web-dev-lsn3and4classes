@@ -9,6 +9,7 @@ namespace SchoolPractice
 {
     public class Student
     {
+        private static int nextStudentId = 1;
         public string Name { get; set; }
         public int StudentId { get; set; }
         public int NumberOfCredits { get; set; }
@@ -26,12 +27,27 @@ namespace SchoolPractice
             NumberOfCredits = numberOfCredits;
             Gpa = gpa;
         }
+        public Student(string name, int studentId)
+              : this(name, studentId, 0, 0) { }
+
+        public Student(string name)
+        : this(name, nextStudentId)
+        {
+            nextStudentId++;
+        }
+
         public void AddGrade(int courseCredits, double grade)
         {
             // Update the appropriate fields: NumberOfCredits, Gpa
+            double newGpa = ((Gpa * NumberOfCredits) + (courseCredits * grade)) / (NumberOfCredits + courseCredits);
+            int newNumberOfCredits = NumberOfCredits + courseCredits;
+            Gpa = newGpa;
+            NumberOfCredits = newNumberOfCredits;
+
+
         }
 
-        public string GetGradeLevel(int NumberOfCredits)// return
+        public string GetGradeLevel()// return
         {
             string gradeLevel = " ";
             if (NumberOfCredits >= 90)
@@ -49,11 +65,32 @@ namespace SchoolPractice
                 gradeLevel = "Sophomore";
                 return gradeLevel;
             }
-            else            
+            else
             {
                 gradeLevel = "Freshman";
                 return gradeLevel;
             }
         }
+        public override string ToString()
+        {
+            return Name + " (Credits: " + NumberOfCredits + ", GPA: " + Gpa + ")";
+        }
+        public override boolean Equals(object toBeCompared)// 5.3.2.1.2 Problem #2
+        {
+
+            if (toBeCompared == null)
+            {
+                return false;
+            }
+
+            if (toBeCompared.GetType() != this.GetType())
+            {
+                return false;
+            }
+
+            Student s = toBeCompared as Student;
+            return s.StudentId == StudentId;
+        }
+
     }
 }
