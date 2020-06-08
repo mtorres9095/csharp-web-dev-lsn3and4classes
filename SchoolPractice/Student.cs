@@ -31,7 +31,7 @@ namespace SchoolPractice
             // Update the appropriate fields: NumberOfCredits, Gpa
         }
 
-        public string GetGradeLevel()// return
+        public string GetGradeLevel(int NumberOfCredits)// return
         {
             string gradeLevel = " ";
             if (NumberOfCredits >= 90)

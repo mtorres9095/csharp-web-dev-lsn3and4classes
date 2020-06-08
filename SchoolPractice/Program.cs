@@ -9,7 +9,8 @@ namespace SchoolPractice
         public static void Main(string[] args)
         {
             Student miguel = new Student("Miguel", 1 ,1 , 4.0);
-            Console.WriteLine($"Testing the class {miguel.Name} is here and is a {GetGradeLevel.gradeLevel}");
+            
+            Console.WriteLine($"Testing the class {miguel.Name} is here and is a {miguel.GetGradeLevel(46)}");
 
             
 
