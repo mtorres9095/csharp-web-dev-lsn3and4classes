@@ -9,10 +9,10 @@ namespace SchoolPractice
 {
     public class Student
     {
-        private string Name { get; set; }
-        private int StudentId { get; set; }    
-        private int NumberOfCredits { get; set; }
-        private double Gpa { get; set; }
+        public string Name { get; set; }
+        public int StudentId { get; set; }
+        public int NumberOfCredits { get; set; }
+        public double Gpa { get; set; }
 
         public Student()
         {
@@ -26,6 +26,34 @@ namespace SchoolPractice
             NumberOfCredits = numberOfCredits;
             Gpa = gpa;
         }
+        public void AddGrade(int courseCredits, double grade)
+        {
+            // Update the appropriate fields: NumberOfCredits, Gpa
+        }
 
+        public string GetGradeLevel()// return
+        {
+            string gradeLevel = " ";
+            if (NumberOfCredits >= 90)
+            {
+                gradeLevel = "Senior";
+                return gradeLevel;
+            }
+            else if (NumberOfCredits >= 60)
+            {
+                gradeLevel = "Junior";
+                return gradeLevel;
+            }
+            else if (NumberOfCredits >= 30)
+            {
+                gradeLevel = "Sophomore";
+                return gradeLevel;
+            }
+            else            
+            {
+                gradeLevel = "Freshman";
+                return gradeLevel;
+            }
+        }
     }
 }
