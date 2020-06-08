@@ -75,16 +75,20 @@ namespace SchoolPractice
         }
         public override bool Equals(object toBeCompared)// 5.3.2.1.2 Problem #2
         {
+            if (this == toBeCompared) 
+            {
+                return true;
+            }
             if (toBeCompared == null)
             {
                 return false;
             }
-            if (toBeCompared.GetType() != this.GetType())
+            if (this.GetType() != toBeCompared.GetType())
             {
                 return false;
             }
-            Student s = toBeCompared as Student;
-            return s.StudentId == StudentId;
+            Student studentObj = toBeCompared as Student;
+            return StudentId == studentObj.StudentId;
         }
 
     }

@@ -7,28 +7,35 @@ namespace SchoolPractice
     {
         public string CourseDesc { get; set; }
         public List<Student> Roster { get; set; }
-        public Teacher instructor;
+        public Teacher Instructor;
 
         public Course()
         {
 
         }
-        /*public override bool Equals(object toBeCompared)//5.3.2.1.1. Problem #1 
+        public override string ToString()
         {
-            if (toBeCompared.GetType() != this.GetType())
+            return $"Course: {CourseDesc}, teacher: {Instructor}";
+        }
+        public override bool Equals(object toBeCompared)//5.3.2.1.1. Problem #1 
+        {
+            if (this == toBeCompared)
+            {
+                return true;
+            }
+            if (toBeCompared == null)
             {
                 return false;
             }
+            if (this.GetType() != toBeCompared.GetType())
+            {
+                return false;
+            }
+           Course courseObj = toBeCompared as Course;
+            return Instructor == courseObj.Instructor && CourseDesc == courseObj.CourseDesc;
 
-            Student s = toBeCompared as Student;
-            return s.StudentId == StudentId;
         }
-        Student bono1 = new Student("Paul David Hewson", 4);
-        Student bono2 = new Student("Bono", 4);
-        if (bono1.Equals(bono2))
-           {
-            Console.WriteLine(bono1.Name + " is the same as " + bono2.Name);
-            }*/
-}
+
+    }
 }
 
